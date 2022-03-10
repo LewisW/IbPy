@@ -40,8 +40,10 @@ from types import MethodType as instancemethod
 
 # Make the environment more like Python 3.0
 __metaclass__ = type
-from itertools import izip as zip
-
+try:
+    from itertools import izip as zip
+except ImportError: # will be 3.x series
+    pass
 
 class overloaded:
     """An implementation of overloaded functions."""
